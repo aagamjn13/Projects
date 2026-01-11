@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="theme.css" class="href">
+    <link rel="stylesheet" href="style.css" class="href">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet"/>
+      
+</head>
+<body>
+    <main>
+        <section>
+<div class="left">
+
+    <div class="top">
+
+            <label for="imageInput" class="button" id="box1">
+                Choose file
+                <input type="file" id="imageInput" accept="image/*" hidden>
+            </label>
+            <button id="box2" class="button">Reset</button>
+            <button id="box3" class="button">Download image</button>
+
+    </div>
+        <div class="bottom">
+            <div class="placeholder">
+                <i class="ri-image-line"></i>
+                <p>No image selected</p>
+            </div>
+           <canvas id="image-canvas"></canvas>
+        </div>
+</div>
+
+<div class="right"> 
+    <h3>Filters</h3>
+    <div class="filters">
+    </div>
+
+    <h3>Presets</h3>
+    <div class="presets">
+        
+    </div>
+  </div>
+
+
+</div>
+        </section>
+    </main>
+</body>
+<script src="JavaScript.js"></script>
+</html>
