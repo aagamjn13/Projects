@@ -2,61 +2,71 @@ let filters = {
     brightness: {
         unit: "%",
         value: 100,
+        default: 100,
         min: 0,
         max: 200
-
     },
     contrast: {
         unit: "%",
         value: 100,
+        default: 100,
         min: 0,
         max: 200
     },
-    saturation: {  
+    saturation: {
         unit: "%",
         value: 100,
+        default: 100,
         min: 0,
         max: 200
     },
     blur: {
         unit: "px",
         value: 0,
+        default: 0,
         min: 0,
         max: 20
     },
     hueRotate: {
         unit: "deg",
         value: 0,
+        default: 0,
         min: 0,
         max: 360
     },
     sepia: {
         unit: "%",
         value: 0,
+        default: 0,
         min: 0,
         max: 100
     },
     grayscale: {
         unit: "%",
         value: 0,
+        default: 0,
         min: 0,
         max: 100
     },
     opacity: {
         unit: "%",
         value: 100,
+        default: 100,
         min: 0,
         max: 100
     },
     invert: {
         unit: "%",
         value: 0,
+        default: 0,
         min: 0,
         max: 100
     }
 }
 
+
 const filtersContainer = document.querySelector(".filters")
+
 function createFilterElement(name, unit = "%", value, min, max){
     const div = document.createElement("div")
     div.classList.add("filter")
@@ -77,10 +87,14 @@ function createFilterElement(name, unit = "%", value, min, max){
         filters[name].value = input.value
         applyFilters()
     })
+    input.addEventListener("dblclick", (e) => {
+        input.value = filters[name].default
+        filters[name].value = filters[name].default
+        applyFilters()
+    })
 
     return div 
 }
-
 function createFilters(){
     Object.keys(filters).forEach(key => {
     // console.log(key)
@@ -92,6 +106,11 @@ function createFilters(){
 })
 }
 createFilters()
+
+
+
+
+
 
 
 const imageCanvas = document.querySelector("#image-canvas")
@@ -148,7 +167,6 @@ function applyFilters(){
     opacity(${filters.opacity.value}${filters.opacity.unit})
     invert(${filters.invert.value}${filters.invert.unit})
     `
-
     CanvasCtx.drawImage(image, 0, 0, imageCanvas.width, imageCanvas.height) 
 }
 
@@ -363,3 +381,4 @@ Object.keys(presets).forEach(presetName => {
     })
     presetContainer.appendChild(button)
 })
+
